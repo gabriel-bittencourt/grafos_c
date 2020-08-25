@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include "../graph.h"
+#include "../data-structures/queue.c"
 
 // Percorre em largura a partir do vértice v
 // Retorna uma árvore de largura de g com raiz em v
@@ -14,8 +15,10 @@ Digraph* BFS(Graph* g, vertex v){
     int* visited = (int*) calloc( g->N, sizeof(int) );
     
     // Fila de vértices alcançados
-    int* queue = (int*) malloc( g->N * sizeof(int) );
-    int front = 0, back = 1;
+    Queue* queue = new_queue();
+
+    // Insere v na fila
+    push_queue(queue, v);
 
     // Árvore de largura que será gerada
     Digraph* t = new_graph(g->N);
@@ -27,8 +30,8 @@ Digraph* BFS(Graph* g, vertex v){
     printf("Ordem da busca: %d", v);
 
     // Enquando houver vértices na fila
-    while( front < g->N - 1 ){
-        
+    while( is_empty_queue(queue) ){
+
         // Visita cada aresta de v
         for (
             Node* w = g->adj[v].head;
@@ -43,7 +46,7 @@ Digraph* BFS(Graph* g, vertex v){
                 visited[w->dest] = 1;
 
                 // Adiciona w na fila
-                queue[back++] = w->dest;
+                push_queue(queue, w->dest);
 
                 // Adiciona a aresta à árvore
                 add_edge(t, v, w->dest, 0, 1);
@@ -54,7 +57,7 @@ Digraph* BFS(Graph* g, vertex v){
         }
 
         // Seleciona o próximo vértice da fila
-        v = queue[++front];
+        v = pop_queue(queue);
     }
 
     printf("\n");
