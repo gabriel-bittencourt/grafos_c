@@ -30,7 +30,7 @@ Ao final da execução, teremos os caminhos de custos mínimos e os respectivos 
 Os vértices que não podem ser alcançados a partir do vértice inicial terão custo infinito.
 
 A complexidade depende da estrutura que será utilizada para manter os custos dos vértices.
-No [código acima](shortest-path/dijkstra.c), o algoritmo foi implementado utilizando um heap binário, e portanto, tem complexidade O(m log n) (**m**: nº de arestas; **n**: nº de vértices).
+No [código acima](dijkstra.c), o algoritmo foi implementado utilizando um heap binário, e portanto, tem complexidade O(m log n) (**m**: nº de arestas; **n**: nº de vértices).
 
 | ![](https://steemitimages.com/0x0/https://i.imgur.com/dWtprX5.gif) |
 | :---------------------------------------------------------------: |
