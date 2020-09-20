@@ -35,3 +35,7 @@ _shortest_path:
 
 run:
 	@gcc $(folder)/$(file).c graph.c -o $(file).out
+
+
+clean:
+	@rm *.out
