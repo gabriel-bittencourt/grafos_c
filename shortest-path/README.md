@@ -45,10 +45,8 @@ Descrição do algoritmo:
 
   - Define-se um conjunto que mantém os custos totais para se alcançar cada vértice, onde todos vértices recebem um custo "infinito",
     exceto o vértice inicial, que recebe custo 0 (zero).
-  - Realiza-se seguinte procedimento **|V|-1** vezes (onde **|V|** é o número de vértices do grafo).
+  - Realiza-se o seguinte procedimento **n-1** vezes (onde **n** é o nº de vértices do grafo).
     - Percorre-se todas as arestas do grafo e realiza-se o relaxamento (descrito anteriormente) em cada uma delas.
- 
-Uma prova da corretude do algoritmo pode sem verificada (em inglês) [aqui](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm#Proof_of_correctness).
 
 A complexidade do algoritmo é O(n*m) (**m**: nº de arestas; **n**: nº de vértices).
 
